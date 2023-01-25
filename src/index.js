@@ -29,7 +29,12 @@ function onSearch(e) {
             };
             e.length === 1 ? countryCard(e) : countryCards(e)
         })
-        .catch(error => Notiflix.Notify.failure('Oops, there is no country with that name'));
+        .catch(error => {
+            refs.countryList.innerHTML = '';
+            refs.countryDiv.innerHTML = '';
+
+            Notiflix.Notify.failure('Oops, there is no country with that name')
+        });
 }
 
 
